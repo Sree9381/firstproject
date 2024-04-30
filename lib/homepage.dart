@@ -1,5 +1,5 @@
-import 'package:firstproject/secondpage.dart';
 import 'package:flutter/material.dart';
+import 'package:firstproject/secondpage.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -7,54 +7,48 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Image.asset(
-            height: 500,
-            'assets/time.jpg',
-            fit: BoxFit.fitHeight,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                const SizedBox(height: 30),
-                const Text(
-                  'Your Productive Task Manager',
-                  style: TextStyle(fontSize: 50, fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'This smart tool is designed to help you manage yoyr tasks in better way',
-                  style: TextStyle(fontSize: 20),
-                ),
-                const SizedBox(height: 50),
-                SizedBox(
-                  width: 500,
-                  child: TextButton(
-                    style: const ButtonStyle(
-                        iconSize: MaterialStatePropertyAll(30),
-                        backgroundColor: MaterialStatePropertyAll(
-                            Color.fromARGB(255, 142, 219, 211)),
-                        padding: MaterialStatePropertyAll(
-                            EdgeInsets.fromLTRB(30, 20, 30, 20))),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SecondPage(),
-                          ));
-                    },
-                    child: const Text(
-                      'CONTINUE',
-                      style: TextStyle(fontSize: 30, color: Colors.black),
-                    ),
-                  ),
-                )
-              ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Column(
+          children: [
+            Expanded(
+              child: Image.asset('assets/bg.png'),
             ),
-          )
-        ],
+            const SizedBox(height: 30),
+            const Text(
+              'Your Productive Task Manager',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'This smart tool is designed to help you manage your tasks in a better way',
+              style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.orange.shade900,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                minimumSize: const Size(double.infinity, 60),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SecondPage(),
+                  ),
+                );
+              },
+              child: const Text(
+                'CONTINUE',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

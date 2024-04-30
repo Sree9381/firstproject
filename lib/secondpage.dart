@@ -7,8 +7,8 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          margin: const EdgeInsets.all(20),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -109,92 +109,35 @@ class SecondPage extends StatelessWidget {
               const SizedBox(height: 20),
 
               // how to push
-              Container(
-                decoration: boxDecoration(),
-                padding: const EdgeInsets.only(top: 25, bottom: 25),
-                child: const Row(
-                  children: [
-                    SizedBox(width: 10),
-                    Icon(
-                      Icons.notes,
-                      size: 30,
-                      color: Colors.purple,
+              Column(
+                children: List.generate(
+                  5,
+                  (index) => Container(
+                    margin: const EdgeInsets.only(bottom: 15),
+                    decoration: boxDecoration(),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 20,
                     ),
-                    SizedBox(width: 10),
-                    Text(
-                      'UI Design',
-                      style: TextStyle(fontSize: 20, color: Colors.purple),
+                    child: const Row(
+                      children: [
+                        SizedBox(width: 10),
+                        Icon(
+                          Icons.notes,
+                          size: 30,
+                          color: Colors.purple,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          'UI Design',
+                          style: TextStyle(fontSize: 20, color: Colors.purple),
+                        ),
+                        SizedBox(width: 10),
+                        Divider(color: Colors.purple)
+                      ],
                     ),
-                    SizedBox(width: 10),
-                    Divider(color: Colors.purple)
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                decoration: boxDecoration(),
-                padding: const EdgeInsets.only(top: 25, bottom: 25),
-                child: const Row(
-                  children: [
-                    SizedBox(width: 10),
-                    Icon(
-                      Icons.notes,
-                      size: 30,
-                      color: Colors.pink,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      'UI Design',
-                      style: TextStyle(fontSize: 20, color: Colors.pink),
-                    ),
-                    SizedBox(width: 10),
-                    Divider(color: Colors.pink)
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                decoration: boxDecoration(),
-                padding: const EdgeInsets.only(top: 25, bottom: 25),
-                child: const Row(
-                  children: [
-                    SizedBox(width: 10),
-                    Icon(
-                      Icons.notes,
-                      size: 30,
-                      color: Colors.green,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      'UI Design',
-                      style: TextStyle(fontSize: 20, color: Colors.green),
-                    ),
-                    SizedBox(width: 10),
-                    Divider(color: Colors.green)
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                decoration: boxDecoration(),
-                padding: const EdgeInsets.only(top: 25, bottom: 25),
-                child: const Row(
-                  children: [
-                    SizedBox(width: 10),
-                    Icon(
-                      Icons.notes,
-                      size: 30,
-                      color: Colors.blue,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      'UI Design',
-                      style: TextStyle(fontSize: 20, color: Colors.blue),
-                    ),
-                    SizedBox(width: 10),
-                    Divider(color: Colors.blue)
-                  ],
-                ),
+                  ),
+                ).toList(),
               ),
             ],
           ),
@@ -204,9 +147,11 @@ class SecondPage extends StatelessWidget {
   }
 
   BoxDecoration boxDecoration() {
-    return const BoxDecoration(
-      color: Colors.black12,
-      borderRadius: BorderRadius.all(Radius.circular(20)),
+    return BoxDecoration(
+      color: Colors.grey.withOpacity(0.08),
+      borderRadius: const BorderRadius.all(
+        Radius.circular(10),
+      ),
     );
   }
 }
